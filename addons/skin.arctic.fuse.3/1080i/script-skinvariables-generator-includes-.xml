@@ -1,0 +1,2805 @@
+<?xml version="1.0" ?>
+<includes>
+    <!-- Wall Widgets -->
+    <include name="skinvariables-homewidgets-wall">
+        <include content="Hub_Wall_Widget">
+            <param name="id">501</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_ondeck_unwatched&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-eb46a5f0)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">502</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_ondeck_unwatched&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-b8c966dc)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">503</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trending_day&amp;tmdb_type=movie</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-12834eb3)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">507</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=movie</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-ddf041c3)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">508</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trending_day&amp;tmdb_type=tv</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-e7824452)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">511</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=tv</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-f8bc37a6)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">512</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_nextepisodes&amp;tmdb_type=tv</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-8c978411)</param>
+        </include>
+        <animation effect="slide" start="0" end="0,260" time="400" tween="quadratic" reversible="false" condition="$EXP[Exp_Hubs_Spotlight_SlideDown]">Conditional</animation>
+        <animation effect="slide" end="0" start="0,260" time="400" tween="quadratic" reversible="false" condition="![$EXP[Exp_Hubs_Spotlight_SlideDown]]">Conditional</animation>
+    </include>
+    <!-- Combined Widgets Selector -->
+    <include name="skinvariables-homewidgets-wall-selector">
+        <item>
+            <label>Continue Watching (Movies)</label>
+            <property name="guid">guid-eb46a5f0</property>
+            <property name="widget_id">$NUMBER[501]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_ondeck_unwatched&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(501).NumItems,0) | Container(501).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Continue Watching (TV Shows)</label>
+            <property name="guid">guid-b8c966dc</property>
+            <property name="widget_id">$NUMBER[502]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_ondeck_unwatched&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(502).NumItems,0) | Container(502).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Trending Movies</label>
+            <property name="guid">guid-12834eb3</property>
+            <property name="widget_id">$NUMBER[503]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trending_day&amp;tmdb_type=movie,return)</onclick>
+            <visible>!Integer.IsEqual(Container(503).NumItems,0) | Container(503).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Recommended Movies</label>
+            <property name="guid">guid-ddf041c3</property>
+            <property name="widget_id">$NUMBER[507]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=movie,return)</onclick>
+            <visible>!Integer.IsEqual(Container(507).NumItems,0) | Container(507).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Trending TV Shows</label>
+            <property name="guid">guid-e7824452</property>
+            <property name="widget_id">$NUMBER[508]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trending_day&amp;tmdb_type=tv,return)</onclick>
+            <visible>!Integer.IsEqual(Container(508).NumItems,0) | Container(508).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Recommended TV Shows</label>
+            <property name="guid">guid-f8bc37a6</property>
+            <property name="widget_id">$NUMBER[511]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=tv,return)</onclick>
+            <visible>!Integer.IsEqual(Container(511).NumItems,0) | Container(511).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Next Episodes</label>
+            <property name="guid">guid-8c978411</property>
+            <property name="widget_id">$NUMBER[512]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_nextepisodes&amp;tmdb_type=tv,return)</onclick>
+            <visible>!Integer.IsEqual(Container(512).NumItems,0) | Container(512).IsUpdating</visible>
+        </item>
+    </include>
+    <!-- Combined Info -->
+    <include name="skinvariables-homewidgets-wall-info">
+        <include content="Hub_Wall_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">502</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">503</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">507</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">508</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">511</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">512</param>
+        </include>
+    </include>
+    <!-- Wall Widgets -->
+    <include name="skinvariables-homewidgets-combined">
+        <include content="Hub_Combined_Widget">
+            <param name="id">501</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_ondeck_unwatched&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-eb46a5f0)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">502</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_ondeck_unwatched&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-b8c966dc)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">503</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trending_day&amp;tmdb_type=movie</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-12834eb3)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">507</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=movie</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-ddf041c3)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">508</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trending_day&amp;tmdb_type=tv</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-e7824452)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">511</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=tv</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-f8bc37a6)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">512</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_nextepisodes&amp;tmdb_type=tv</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-8c978411)</param>
+        </include>
+    </include>
+    <!-- Wall Widgets Selector -->
+    <include name="skinvariables-homewidgets-combined-selector">
+        <item>
+            <label>Continue Watching (Movies)</label>
+            <property name="guid">guid-eb46a5f0</property>
+            <property name="widget_id">$NUMBER[501]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_ondeck_unwatched&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(501).NumItems,0) | Container(501).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Continue Watching (TV Shows)</label>
+            <property name="guid">guid-b8c966dc</property>
+            <property name="widget_id">$NUMBER[502]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_ondeck_unwatched&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(502).NumItems,0) | Container(502).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Trending Movies</label>
+            <property name="guid">guid-12834eb3</property>
+            <property name="widget_id">$NUMBER[503]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trending_day&amp;tmdb_type=movie,return)</onclick>
+            <visible>!Integer.IsEqual(Container(503).NumItems,0) | Container(503).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Recommended Movies</label>
+            <property name="guid">guid-ddf041c3</property>
+            <property name="widget_id">$NUMBER[507]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=movie,return)</onclick>
+            <visible>!Integer.IsEqual(Container(507).NumItems,0) | Container(507).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Trending TV Shows</label>
+            <property name="guid">guid-e7824452</property>
+            <property name="widget_id">$NUMBER[508]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trending_day&amp;tmdb_type=tv,return)</onclick>
+            <visible>!Integer.IsEqual(Container(508).NumItems,0) | Container(508).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Recommended TV Shows</label>
+            <property name="guid">guid-f8bc37a6</property>
+            <property name="widget_id">$NUMBER[511]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=tv,return)</onclick>
+            <visible>!Integer.IsEqual(Container(511).NumItems,0) | Container(511).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Next Episodes</label>
+            <property name="guid">guid-8c978411</property>
+            <property name="widget_id">$NUMBER[512]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_nextepisodes&amp;tmdb_type=tv,return)</onclick>
+            <visible>!Integer.IsEqual(Container(512).NumItems,0) | Container(512).IsUpdating</visible>
+        </item>
+    </include>
+    <!-- Combined Info -->
+    <include name="skinvariables-homewidgets-combined-info">
+        <include content="Hub_Combined_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">502</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">503</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">507</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">508</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">511</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">512</param>
+        </include>
+    </include>
+    <!-- Standard Widgets -->
+    <include name="skinvariables-homewidgets-standard">
+        <include content="Hub_Widgets_Grouplist">
+            <include content="Widget_Row">
+                <param name="id">501</param>
+                <param name="groupid">701</param>
+                <param name="label">Continue Watching (Movies)</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">501</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trakt_ondeck_unwatched&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(501) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">502</param>
+                <param name="groupid">702</param>
+                <param name="label">Continue Watching (TV Shows)</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">502</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trakt_ondeck_unwatched&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(502) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">503</param>
+                <param name="groupid">703</param>
+                <param name="label">Trending Movies</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">503</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trending_day&amp;tmdb_type=movie</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(503) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">507</param>
+                <param name="groupid">707</param>
+                <param name="label">Recommended Movies</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">507</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=movie</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(507) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">508</param>
+                <param name="groupid">708</param>
+                <param name="label">Trending TV Shows</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">508</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trending_day&amp;tmdb_type=tv</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(508) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">511</param>
+                <param name="groupid">711</param>
+                <param name="label">Recommended TV Shows</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">511</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=tv</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(511) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">512</param>
+                <param name="groupid">712</param>
+                <param name="label">Next Episodes</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">512</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trakt_nextepisodes&amp;tmdb_type=tv</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(512) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+        </include>
+    </include>
+    <!-- Wall Widgets -->
+    <include name="skinvariables-1101widgets-wall">
+        <include content="Hub_Wall_Widget">
+            <param name="id">501</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trending_week&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-0b8eb1f8)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">502</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=popular&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-2c5496de)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">503</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=top_rated&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-5f6b801f)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">504</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=upcoming&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-921247ea)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">505</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=now_playing&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-acb15c69)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">506</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-a34b8996)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">507</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-433854c8)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">508</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-a3d66d05)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">509</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-0cb777af)</param>
+        </include>
+        <animation effect="slide" start="0" end="0,260" time="400" tween="quadratic" reversible="false" condition="$EXP[Exp_Hubs_Spotlight_SlideDown]">Conditional</animation>
+        <animation effect="slide" end="0" start="0,260" time="400" tween="quadratic" reversible="false" condition="![$EXP[Exp_Hubs_Spotlight_SlideDown]]">Conditional</animation>
+    </include>
+    <!-- Combined Widgets Selector -->
+    <include name="skinvariables-1101widgets-wall-selector">
+        <item>
+            <label>Trending</label>
+            <property name="guid">guid-0b8eb1f8</property>
+            <property name="widget_id">$NUMBER[501]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trending_week&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(501).NumItems,0) | Container(501).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Popular</label>
+            <property name="guid">guid-2c5496de</property>
+            <property name="widget_id">$NUMBER[502]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=popular&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(502).NumItems,0) | Container(502).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Top Rated</label>
+            <property name="guid">guid-5f6b801f</property>
+            <property name="widget_id">$NUMBER[503]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=top_rated&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(503).NumItems,0) | Container(503).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Upcoming</label>
+            <property name="guid">guid-921247ea</property>
+            <property name="widget_id">$NUMBER[504]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=upcoming&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(504).NumItems,0) | Container(504).IsUpdating</visible>
+        </item>
+        <item>
+            <label>In Theaters</label>
+            <property name="guid">guid-acb15c69</property>
+            <property name="widget_id">$NUMBER[505]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=now_playing&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(505).NumItems,0) | Container(505).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Recently Watched</label>
+            <property name="guid">guid-a34b8996</property>
+            <property name="widget_id">$NUMBER[506]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(506).NumItems,0) | Container(506).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Recommended For You</label>
+            <property name="guid">guid-433854c8</property>
+            <property name="widget_id">$NUMBER[507]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(507).NumItems,0) | Container(507).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Based on Recently Watched</label>
+            <property name="guid">guid-a3d66d05</property>
+            <property name="widget_id">$NUMBER[508]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(508).NumItems,0) | Container(508).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Search</label>
+            <property name="guid">guid-0cb777af</property>
+            <property name="widget_id">$NUMBER[509]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(509).NumItems,0) | Container(509).IsUpdating</visible>
+        </item>
+    </include>
+    <!-- Combined Info -->
+    <include name="skinvariables-1101widgets-wall-info">
+        <include content="Hub_Wall_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">502</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">503</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">504</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">505</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">506</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">507</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">508</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">509</param>
+        </include>
+    </include>
+    <!-- Wall Widgets -->
+    <include name="skinvariables-1101widgets-combined">
+        <include content="Hub_Combined_Widget">
+            <param name="id">501</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trending_week&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-0b8eb1f8)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">502</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=popular&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-2c5496de)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">503</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=top_rated&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-5f6b801f)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">504</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=upcoming&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-921247ea)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">505</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=now_playing&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-acb15c69)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">506</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-a34b8996)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">507</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-433854c8)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">508</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-a3d66d05)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">509</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-0cb777af)</param>
+        </include>
+    </include>
+    <!-- Wall Widgets Selector -->
+    <include name="skinvariables-1101widgets-combined-selector">
+        <item>
+            <label>Trending</label>
+            <property name="guid">guid-0b8eb1f8</property>
+            <property name="widget_id">$NUMBER[501]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trending_week&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(501).NumItems,0) | Container(501).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Popular</label>
+            <property name="guid">guid-2c5496de</property>
+            <property name="widget_id">$NUMBER[502]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=popular&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(502).NumItems,0) | Container(502).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Top Rated</label>
+            <property name="guid">guid-5f6b801f</property>
+            <property name="widget_id">$NUMBER[503]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=top_rated&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(503).NumItems,0) | Container(503).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Upcoming</label>
+            <property name="guid">guid-921247ea</property>
+            <property name="widget_id">$NUMBER[504]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=upcoming&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(504).NumItems,0) | Container(504).IsUpdating</visible>
+        </item>
+        <item>
+            <label>In Theaters</label>
+            <property name="guid">guid-acb15c69</property>
+            <property name="widget_id">$NUMBER[505]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=now_playing&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(505).NumItems,0) | Container(505).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Recently Watched</label>
+            <property name="guid">guid-a34b8996</property>
+            <property name="widget_id">$NUMBER[506]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(506).NumItems,0) | Container(506).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Recommended For You</label>
+            <property name="guid">guid-433854c8</property>
+            <property name="widget_id">$NUMBER[507]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(507).NumItems,0) | Container(507).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Based on Recently Watched</label>
+            <property name="guid">guid-a3d66d05</property>
+            <property name="widget_id">$NUMBER[508]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(508).NumItems,0) | Container(508).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Search</label>
+            <property name="guid">guid-0cb777af</property>
+            <property name="widget_id">$NUMBER[509]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(509).NumItems,0) | Container(509).IsUpdating</visible>
+        </item>
+    </include>
+    <!-- Combined Info -->
+    <include name="skinvariables-1101widgets-combined-info">
+        <include content="Hub_Combined_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">502</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">503</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">504</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">505</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">506</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">507</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">508</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">509</param>
+        </include>
+    </include>
+    <!-- Standard Widgets -->
+    <include name="skinvariables-1101widgets-standard">
+        <include content="Hub_Widgets_Grouplist">
+            <include content="Widget_Row">
+                <param name="id">501</param>
+                <param name="groupid">701</param>
+                <param name="label">Trending</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">501</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trending_week&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(501) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">502</param>
+                <param name="groupid">702</param>
+                <param name="label">Popular</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">502</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=popular&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(502) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">503</param>
+                <param name="groupid">703</param>
+                <param name="label">Top Rated</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">503</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=top_rated&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(503) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">504</param>
+                <param name="groupid">704</param>
+                <param name="label">Upcoming</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">504</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=upcoming&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(504) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">505</param>
+                <param name="groupid">705</param>
+                <param name="label">In Theaters</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">505</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=now_playing&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(505) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">506</param>
+                <param name="groupid">706</param>
+                <param name="label">Recently Watched</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">506</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(506) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">507</param>
+                <param name="groupid">707</param>
+                <param name="label">Recommended For You</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">507</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(507) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">508</param>
+                <param name="groupid">708</param>
+                <param name="label">Based on Recently Watched</param>
+                <param name="usewidgetlabel">True</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">508</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(508) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">509</param>
+                <param name="groupid">709</param>
+                <param name="label">Search</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">509</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(509) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+        </include>
+    </include>
+    <!-- Wall Widgets -->
+    <include name="skinvariables-1102widgets-wall">
+        <include content="Hub_Wall_Widget">
+            <param name="id">501</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trending_week&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-e4470a52)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">502</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=popular&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-1da94d20)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">503</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=top_rated&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-74e6a13e)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">504</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=airing_today&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-391c7a1e)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">505</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-a3a054f5)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">506</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_nextepisodes&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-b22a45a3)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">507</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-542bbd23)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">508</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-20ab6ae0)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">509</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-37e12477)</param>
+        </include>
+        <animation effect="slide" start="0" end="0,260" time="400" tween="quadratic" reversible="false" condition="$EXP[Exp_Hubs_Spotlight_SlideDown]">Conditional</animation>
+        <animation effect="slide" end="0" start="0,260" time="400" tween="quadratic" reversible="false" condition="![$EXP[Exp_Hubs_Spotlight_SlideDown]]">Conditional</animation>
+    </include>
+    <!-- Combined Widgets Selector -->
+    <include name="skinvariables-1102widgets-wall-selector">
+        <item>
+            <label>Trending</label>
+            <property name="guid">guid-e4470a52</property>
+            <property name="widget_id">$NUMBER[501]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trending_week&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(501).NumItems,0) | Container(501).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Popular</label>
+            <property name="guid">guid-1da94d20</property>
+            <property name="widget_id">$NUMBER[502]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=popular&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(502).NumItems,0) | Container(502).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Top Rated</label>
+            <property name="guid">guid-74e6a13e</property>
+            <property name="widget_id">$NUMBER[503]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=top_rated&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(503).NumItems,0) | Container(503).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Airing Today</label>
+            <property name="guid">guid-391c7a1e</property>
+            <property name="widget_id">$NUMBER[504]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=airing_today&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(504).NumItems,0) | Container(504).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Recently Watched</label>
+            <property name="guid">guid-a3a054f5</property>
+            <property name="widget_id">$NUMBER[505]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(505).NumItems,0) | Container(505).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Continue With...</label>
+            <property name="guid">guid-b22a45a3</property>
+            <property name="widget_id">$NUMBER[506]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_nextepisodes&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(506).NumItems,0) | Container(506).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Recommended For You</label>
+            <property name="guid">guid-542bbd23</property>
+            <property name="widget_id">$NUMBER[507]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(507).NumItems,0) | Container(507).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Based on Recently Watched</label>
+            <property name="guid">guid-20ab6ae0</property>
+            <property name="widget_id">$NUMBER[508]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(508).NumItems,0) | Container(508).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Search</label>
+            <property name="guid">guid-37e12477</property>
+            <property name="widget_id">$NUMBER[509]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(509).NumItems,0) | Container(509).IsUpdating</visible>
+        </item>
+    </include>
+    <!-- Combined Info -->
+    <include name="skinvariables-1102widgets-wall-info">
+        <include content="Hub_Wall_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">502</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">503</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">504</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">505</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">506</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">507</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">508</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">509</param>
+        </include>
+    </include>
+    <!-- Wall Widgets -->
+    <include name="skinvariables-1102widgets-combined">
+        <include content="Hub_Combined_Widget">
+            <param name="id">501</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trending_week&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-e4470a52)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">502</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=popular&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-1da94d20)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">503</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=top_rated&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-74e6a13e)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">504</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=airing_today&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-391c7a1e)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">505</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-a3a054f5)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">506</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_nextepisodes&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-b22a45a3)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">507</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-542bbd23)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">508</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-20ab6ae0)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">509</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-37e12477)</param>
+        </include>
+    </include>
+    <!-- Wall Widgets Selector -->
+    <include name="skinvariables-1102widgets-combined-selector">
+        <item>
+            <label>Trending</label>
+            <property name="guid">guid-e4470a52</property>
+            <property name="widget_id">$NUMBER[501]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trending_week&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(501).NumItems,0) | Container(501).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Popular</label>
+            <property name="guid">guid-1da94d20</property>
+            <property name="widget_id">$NUMBER[502]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=popular&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(502).NumItems,0) | Container(502).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Top Rated</label>
+            <property name="guid">guid-74e6a13e</property>
+            <property name="widget_id">$NUMBER[503]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=top_rated&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(503).NumItems,0) | Container(503).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Airing Today</label>
+            <property name="guid">guid-391c7a1e</property>
+            <property name="widget_id">$NUMBER[504]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=airing_today&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(504).NumItems,0) | Container(504).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Recently Watched</label>
+            <property name="guid">guid-a3a054f5</property>
+            <property name="widget_id">$NUMBER[505]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(505).NumItems,0) | Container(505).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Continue With...</label>
+            <property name="guid">guid-b22a45a3</property>
+            <property name="widget_id">$NUMBER[506]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_nextepisodes&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(506).NumItems,0) | Container(506).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Recommended For You</label>
+            <property name="guid">guid-542bbd23</property>
+            <property name="widget_id">$NUMBER[507]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(507).NumItems,0) | Container(507).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Based on Recently Watched</label>
+            <property name="guid">guid-20ab6ae0</property>
+            <property name="widget_id">$NUMBER[508]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(508).NumItems,0) | Container(508).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Search</label>
+            <property name="guid">guid-37e12477</property>
+            <property name="widget_id">$NUMBER[509]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(509).NumItems,0) | Container(509).IsUpdating</visible>
+        </item>
+    </include>
+    <!-- Combined Info -->
+    <include name="skinvariables-1102widgets-combined-info">
+        <include content="Hub_Combined_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">502</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">503</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">504</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">505</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">506</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">507</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">508</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">509</param>
+        </include>
+    </include>
+    <!-- Standard Widgets -->
+    <include name="skinvariables-1102widgets-standard">
+        <include content="Hub_Widgets_Grouplist">
+            <include content="Widget_Row">
+                <param name="id">501</param>
+                <param name="groupid">701</param>
+                <param name="label">Trending</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">501</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trending_week&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(501) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">502</param>
+                <param name="groupid">702</param>
+                <param name="label">Popular</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">502</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=popular&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(502) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">503</param>
+                <param name="groupid">703</param>
+                <param name="label">Top Rated</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">503</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=top_rated&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(503) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">504</param>
+                <param name="groupid">704</param>
+                <param name="label">Airing Today</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">504</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=airing_today&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(504) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">505</param>
+                <param name="groupid">705</param>
+                <param name="label">Recently Watched</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">505</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(505) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">506</param>
+                <param name="groupid">706</param>
+                <param name="label">Continue With...</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">506</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trakt_nextepisodes&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(506) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">507</param>
+                <param name="groupid">707</param>
+                <param name="label">Recommended For You</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">507</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(507) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">508</param>
+                <param name="groupid">708</param>
+                <param name="label">Based on Recently Watched</param>
+                <param name="usewidgetlabel">True</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">508</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(508) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">509</param>
+                <param name="groupid">709</param>
+                <param name="label">Search</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">509</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(509) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+        </include>
+    </include>
+    <!-- Wall Widgets -->
+    <include name="skinvariables-1103widgets-wall">
+        <include content="Hub_Wall_Widget">
+            <param name="id">501</param>
+            <param name="content">plugin://plugin.video.umbrella</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-94b849b9)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">502</param>
+            <param name="content">plugin://plugin.video.pov</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-cc142a03)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">503</param>
+            <param name="content">plugin://plugin.video.thecrew</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-53c96dff)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">504</param>
+            <param name="content">plugin://plugin.video.seren</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-c3dc8590)</param>
+        </include>
+        <animation effect="slide" start="0" end="0,260" time="400" tween="quadratic" reversible="false" condition="$EXP[Exp_Hubs_Spotlight_SlideDown]">Conditional</animation>
+        <animation effect="slide" end="0" start="0,260" time="400" tween="quadratic" reversible="false" condition="![$EXP[Exp_Hubs_Spotlight_SlideDown]]">Conditional</animation>
+    </include>
+    <!-- Combined Widgets Selector -->
+    <include name="skinvariables-1103widgets-wall-selector">
+        <item>
+            <label>Umbrella</label>
+            <property name="guid">guid-94b849b9</property>
+            <property name="widget_id">$NUMBER[501]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.umbrella,return)</onclick>
+            <visible>!Integer.IsEqual(Container(501).NumItems,0) | Container(501).IsUpdating</visible>
+        </item>
+        <item>
+            <label>POV</label>
+            <property name="guid">guid-cc142a03</property>
+            <property name="widget_id">$NUMBER[502]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.pov,return)</onclick>
+            <visible>!Integer.IsEqual(Container(502).NumItems,0) | Container(502).IsUpdating</visible>
+        </item>
+        <item>
+            <label>The Crew</label>
+            <property name="guid">guid-53c96dff</property>
+            <property name="widget_id">$NUMBER[503]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.thecrew,return)</onclick>
+            <visible>!Integer.IsEqual(Container(503).NumItems,0) | Container(503).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Seren</label>
+            <property name="guid">guid-c3dc8590</property>
+            <property name="widget_id">$NUMBER[504]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.seren,return)</onclick>
+            <visible>!Integer.IsEqual(Container(504).NumItems,0) | Container(504).IsUpdating</visible>
+        </item>
+    </include>
+    <!-- Combined Info -->
+    <include name="skinvariables-1103widgets-wall-info">
+        <include content="Hub_Wall_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">502</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">503</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">504</param>
+        </include>
+    </include>
+    <!-- Wall Widgets -->
+    <include name="skinvariables-1103widgets-combined">
+        <include content="Hub_Combined_Widget">
+            <param name="id">501</param>
+            <param name="content">plugin://plugin.video.umbrella</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-94b849b9)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">502</param>
+            <param name="content">plugin://plugin.video.pov</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-cc142a03)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">503</param>
+            <param name="content">plugin://plugin.video.thecrew</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-53c96dff)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">504</param>
+            <param name="content">plugin://plugin.video.seren</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-c3dc8590)</param>
+        </include>
+    </include>
+    <!-- Wall Widgets Selector -->
+    <include name="skinvariables-1103widgets-combined-selector">
+        <item>
+            <label>Umbrella</label>
+            <property name="guid">guid-94b849b9</property>
+            <property name="widget_id">$NUMBER[501]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.umbrella,return)</onclick>
+            <visible>!Integer.IsEqual(Container(501).NumItems,0) | Container(501).IsUpdating</visible>
+        </item>
+        <item>
+            <label>POV</label>
+            <property name="guid">guid-cc142a03</property>
+            <property name="widget_id">$NUMBER[502]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.pov,return)</onclick>
+            <visible>!Integer.IsEqual(Container(502).NumItems,0) | Container(502).IsUpdating</visible>
+        </item>
+        <item>
+            <label>The Crew</label>
+            <property name="guid">guid-53c96dff</property>
+            <property name="widget_id">$NUMBER[503]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.thecrew,return)</onclick>
+            <visible>!Integer.IsEqual(Container(503).NumItems,0) | Container(503).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Seren</label>
+            <property name="guid">guid-c3dc8590</property>
+            <property name="widget_id">$NUMBER[504]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.seren,return)</onclick>
+            <visible>!Integer.IsEqual(Container(504).NumItems,0) | Container(504).IsUpdating</visible>
+        </item>
+    </include>
+    <!-- Combined Info -->
+    <include name="skinvariables-1103widgets-combined-info">
+        <include content="Hub_Combined_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">502</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">503</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">504</param>
+        </include>
+    </include>
+    <!-- Standard Widgets -->
+    <include name="skinvariables-1103widgets-standard">
+        <include content="Hub_Widgets_Grouplist">
+            <include content="Widget_Row">
+                <param name="id">501</param>
+                <param name="groupid">701</param>
+                <param name="label">Umbrella</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">501</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.umbrella</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(501) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">502</param>
+                <param name="groupid">702</param>
+                <param name="label">POV</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">502</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.pov</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(502) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">503</param>
+                <param name="groupid">703</param>
+                <param name="label">The Crew</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">503</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.thecrew</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(503) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">504</param>
+                <param name="groupid">704</param>
+                <param name="label">Seren</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">504</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.seren</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(504) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+        </include>
+    </include>
+    <!-- Wall Widgets -->
+    <include name="skinvariables-1104widgets-wall">
+        <include content="Hub_Wall_Widget">
+            <param name="id">501</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-90be494f)</param>
+        </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">502</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-8c7ff725)</param>
+        </include>
+        <animation effect="slide" start="0" end="0,260" time="400" tween="quadratic" reversible="false" condition="$EXP[Exp_Hubs_Spotlight_SlideDown]">Conditional</animation>
+        <animation effect="slide" end="0" start="0,260" time="400" tween="quadratic" reversible="false" condition="![$EXP[Exp_Hubs_Spotlight_SlideDown]]">Conditional</animation>
+    </include>
+    <!-- Combined Widgets Selector -->
+    <include name="skinvariables-1104widgets-wall-selector">
+        <item>
+            <label>Search Movies</label>
+            <property name="guid">guid-90be494f</property>
+            <property name="widget_id">$NUMBER[501]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(501).NumItems,0) | Container(501).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Search TV Shows</label>
+            <property name="guid">guid-8c7ff725</property>
+            <property name="widget_id">$NUMBER[502]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(502).NumItems,0) | Container(502).IsUpdating</visible>
+        </item>
+    </include>
+    <!-- Combined Info -->
+    <include name="skinvariables-1104widgets-wall-info">
+        <include content="Hub_Wall_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">502</param>
+        </include>
+    </include>
+    <!-- Wall Widgets -->
+    <include name="skinvariables-1104widgets-combined">
+        <include content="Hub_Combined_Widget">
+            <param name="id">501</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-90be494f)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">502</param>
+            <param name="content">plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-8c7ff725)</param>
+        </include>
+    </include>
+    <!-- Wall Widgets Selector -->
+    <include name="skinvariables-1104widgets-combined-selector">
+        <item>
+            <label>Search Movies</label>
+            <property name="guid">guid-90be494f</property>
+            <property name="widget_id">$NUMBER[501]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(501).NumItems,0) | Container(501).IsUpdating</visible>
+        </item>
+        <item>
+            <label>Search TV Shows</label>
+            <property name="guid">guid-8c7ff725</property>
+            <property name="widget_id">$NUMBER[502]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true,return)</onclick>
+            <visible>!Integer.IsEqual(Container(502).NumItems,0) | Container(502).IsUpdating</visible>
+        </item>
+    </include>
+    <!-- Combined Info -->
+    <include name="skinvariables-1104widgets-combined-info">
+        <include content="Hub_Combined_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">502</param>
+        </include>
+    </include>
+    <!-- Standard Widgets -->
+    <include name="skinvariables-1104widgets-standard">
+        <include content="Hub_Widgets_Grouplist">
+            <include content="Widget_Row">
+                <param name="id">501</param>
+                <param name="groupid">701</param>
+                <param name="label">Search Movies</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">501</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=movie&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(501) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">502</param>
+                <param name="groupid">702</param>
+                <param name="label">Search TV Shows</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">502</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.themoviedb.helper/?info=dir_search&amp;tmdb_type=tv&amp;reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&amp;widget=true</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(502) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+        </include>
+    </include>
+    <!-- Static Submenu Menu -->
+    <include name="skinvariables-homesubmenu-staticitems">
+        <item>
+            <label>Movies</label>
+            <icon>special://skin/extras/icons/video.png</icon>
+            <property name="path">plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;tmdb_type=None</property>
+            <property name="menu">homesubmenu</property>
+            <property name="mode"/>
+            <property name="node"/>
+            <property name="item">$NUMBER[0]</property>
+            <property name="guid">guid-953cf821</property>
+            <property name="target">videos</property>
+            <property name="fanart"/>
+            <onclick>Close</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;tmdb_type=None,return)</onclick>
+            <visible>True</visible>
+        </item>
+        <item>
+            <label>TV Shows</label>
+            <icon>special://skin/extras/icons/songs.png</icon>
+            <property name="path">plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;tmdb_type=None</property>
+            <property name="menu">homesubmenu</property>
+            <property name="mode"/>
+            <property name="node"/>
+            <property name="item">$NUMBER[1]</property>
+            <property name="guid">guid-79881569</property>
+            <property name="target">videos</property>
+            <property name="fanart"/>
+            <onclick>Close</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;tmdb_type=None,return)</onclick>
+            <visible>True</visible>
+        </item>
+    </include>
+    <!-- Static Submenu Menu -->
+    <include name="skinvariables-1101submenu-staticitems">
+</include>
+    <!-- Static Submenu Menu -->
+    <include name="skinvariables-1102submenu-staticitems">
+</include>
+    <!-- Static Submenu Menu -->
+    <include name="skinvariables-1103submenu-staticitems">
+        <item>
+            <label>Umbrella</label>
+            <icon>special://skin/extras/icons/watched-hide.png</icon>
+            <property name="path">plugin://plugin.video.umbrella</property>
+            <property name="menu">1103submenu</property>
+            <property name="mode"/>
+            <property name="node"/>
+            <property name="item">$NUMBER[0]</property>
+            <property name="guid">guid-dfe94a05</property>
+            <property name="target">videos</property>
+            <property name="fanart"/>
+            <onclick>Close</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.umbrella,return)</onclick>
+            <visible>True</visible>
+        </item>
+        <item>
+            <label>POV</label>
+            <icon>special://skin/extras/icons/watched-hide.png</icon>
+            <property name="path">plugin://plugin.video.pov</property>
+            <property name="menu">1103submenu</property>
+            <property name="mode"/>
+            <property name="node"/>
+            <property name="item">$NUMBER[1]</property>
+            <property name="guid">guid-0575e726</property>
+            <property name="target">videos</property>
+            <property name="fanart"/>
+            <onclick>Close</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.pov,return)</onclick>
+            <visible>True</visible>
+        </item>
+        <item>
+            <label>The Crew</label>
+            <icon>special://skin/extras/icons/watched-hide.png</icon>
+            <property name="path">plugin://plugin.video.thecrew</property>
+            <property name="menu">1103submenu</property>
+            <property name="mode"/>
+            <property name="node"/>
+            <property name="item">$NUMBER[2]</property>
+            <property name="guid">guid-3c0b3038</property>
+            <property name="target">videos</property>
+            <property name="fanart"/>
+            <onclick>Close</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.thecrew,return)</onclick>
+            <visible>True</visible>
+        </item>
+        <item>
+            <label>Seren</label>
+            <icon>special://skin/extras/icons/watched-hide.png</icon>
+            <property name="path">plugin://plugin.video.seren</property>
+            <property name="menu">1103submenu</property>
+            <property name="mode"/>
+            <property name="node"/>
+            <property name="item">$NUMBER[3]</property>
+            <property name="guid">guid-cef9350d</property>
+            <property name="target">videos</property>
+            <property name="fanart"/>
+            <onclick>Close</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.seren,return)</onclick>
+            <visible>True</visible>
+        </item>
+    </include>
+    <!-- Static Submenu Menu -->
+    <include name="skinvariables-1104submenu-staticitems">
+</include>
+    <!-- Static Power Main Menu -->
+    <include name="skinvariables-powermenu-staticitems">
+        <item>
+            <label>$LOCALIZE[1036]</label>
+            <icon>special://skin/extras/icons/favourites2.png</icon>
+            <property name="path">ActivateWindow(1160)</property>
+            <property name="menu">powermenu</property>
+            <property name="mode"/>
+            <property name="node"/>
+            <property name="item">$NUMBER[0]</property>
+            <property name="guid">guid-64d3a1e3</property>
+            <property name="target"/>
+            <property name="fanart"/>
+            <onclick>Close</onclick>
+            <onclick>ActivateWindow(1160)</onclick>
+            <visible>True</visible>
+        </item>
+        <item>
+            <label>$LOCALIZE[7]</label>
+            <icon>special://skin/extras/icons/filebox.png</icon>
+            <property name="path">ActivateWindow(filemanager)</property>
+            <property name="menu">powermenu</property>
+            <property name="mode"/>
+            <property name="node"/>
+            <property name="item">$NUMBER[1]</property>
+            <property name="guid">guid-492af53b</property>
+            <property name="target"/>
+            <property name="fanart"/>
+            <onclick>Close</onclick>
+            <onclick>ActivateWindow(filemanager)</onclick>
+            <visible>True</visible>
+        </item>
+        <item>
+            <label>$LOCALIZE[31359]</label>
+            <icon>special://skin/extras/icons/address-card.png</icon>
+            <property name="path">ActivateWindow(1195)</property>
+            <property name="menu">powermenu</property>
+            <property name="mode"/>
+            <property name="node"/>
+            <property name="item">$NUMBER[2]</property>
+            <property name="guid">guid-7a27e94e</property>
+            <property name="target"/>
+            <property name="fanart"/>
+            <onclick>Close</onclick>
+            <onclick>ActivateWindow(1195)</onclick>
+            <visible>!Skin.HasSetting(SkinUserLogin.Disabled)</visible>
+        </item>
+        <item>
+            <label>$LOCALIZE[13009]</label>
+            <icon>special://skin/extras/icons/power.png</icon>
+            <property name="path">Quit()</property>
+            <property name="menu">powermenu</property>
+            <property name="mode"/>
+            <property name="node"/>
+            <property name="item">$NUMBER[3]</property>
+            <property name="guid">guid-4b998f65</property>
+            <property name="target"/>
+            <property name="fanart"/>
+            <onclick>Close</onclick>
+            <onclick>Quit()</onclick>
+            <visible>True</visible>
+        </item>
+    </include>
+    <!-- Options Tray Items -->
+    <include name="skinvariables-powertray-staticitems">
+</include>
+    <!-- Options Onload Tray Check -->
+    <include name="skinvariables-powertray-onload">
+</include>
+    <!-- Search Extended -->
+    <include name="skinvariables-searchwidgets-combined">
+        <include content="Hub_Combined_Widget">
+            <param name="id">502</param>
+            <param name="content">$VAR[Path_SearchTerm_DoubleEncoded,plugin://plugin.video.themoviedb.helper?info=search&amp;tmdb_type=movie&amp;query=,&amp;nextpage=false&amp;cacheonly=true]</param>
+            <param name="include">List_Poster_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-5859617f)</param>
+            <param name="allowhiddenfocus">true</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">503</param>
+            <param name="content">$VAR[Path_SearchTerm_SingleEncoded,videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D]</param>
+            <param name="include">List_Poster_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-88ca3498)</param>
+            <param name="allowhiddenfocus">true</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">504</param>
+            <param name="content">$VAR[Path_SearchTerm_SingleEncoded,musicdb://albums/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22album%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22albums%22%7D]</param>
+            <param name="include">List_Square_Row</param>
+            <param name="target">music</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-8568cc69)</param>
+            <param name="allowhiddenfocus">true</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">505</param>
+            <param name="content">$VAR[Path_SearchTerm_SingleEncoded,musicdb://artists/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22artists%22%7D]</param>
+            <param name="include">List_Square_Row</param>
+            <param name="target">music</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-4b9d78e9)</param>
+            <param name="allowhiddenfocus">true</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">506</param>
+            <param name="content">$VAR[Path_SearchTerm_DoubleEncoded,plugin://plugin.video.themoviedb.helper?info=search&amp;tmdb_type=movie&amp;query=,&amp;nextpage=false&amp;cacheonly=true]</param>
+            <param name="include">List_Poster_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-8ea99d8d)</param>
+            <param name="allowhiddenfocus">true</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">507</param>
+            <param name="content">$VAR[Path_SearchTerm_DoubleEncoded,plugin://plugin.video.themoviedb.helper?info=search&amp;tmdb_type=tv&amp;query=,&amp;nextpage=false&amp;cacheonly=true]</param>
+            <param name="include">List_Poster_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-083b6023)</param>
+            <param name="allowhiddenfocus">true</param>
+        </include>
+    </include>
+    <!-- Search Widgets -->
+    <include name="skinvariables-searchwidgets-standard">
+        <include content="Hub_Widgets_Grouplist">
+            <include content="Widget_Row">
+                <param name="id">502</param>
+                <param name="groupid">702</param>
+                <param name="label">Movies</param>
+                <param name="include">List_Poster_Row</param>
+                <param name="visible">[String.IsEqual(Container(601).ListItem.Property(guid),guid-5859617f) | String.IsEmpty(Container(601).ListItem.Property(guid)) | Skin.HasSetting(Search.DisableCombined)]</param>
+                <param name="altvisible">[!String.IsEmpty(Control.GetLabel(3000).index(1)) + [Control.HasFocus(3000) | Control.HasFocus(301)] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                <param name="busy_isupdating">[!String.IsEmpty(Control.GetLabel(3000).index(1)) + [Control.HasFocus(3000) | Control.HasFocus(301)] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                <param name="busy_visible">[Integer.IsEqual(Container(502).NumItems,0) | Container(502).IsUpdating]</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">502</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">$VAR[Path_SearchTerm_DoubleEncoded,plugin://plugin.video.themoviedb.helper?info=search&amp;tmdb_type=movie&amp;query=,&amp;nextpage=false&amp;cacheonly=true]</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(502) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">503</param>
+                <param name="groupid">703</param>
+                <param name="label">TV Shows</param>
+                <param name="include">List_Poster_Row</param>
+                <param name="visible">[String.IsEqual(Container(601).ListItem.Property(guid),guid-88ca3498) | String.IsEmpty(Container(601).ListItem.Property(guid)) | Skin.HasSetting(Search.DisableCombined)]</param>
+                <param name="altvisible">[!String.IsEmpty(Control.GetLabel(3000).index(1)) + [Control.HasFocus(3000) | Control.HasFocus(301)] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                <param name="busy_isupdating">[!String.IsEmpty(Control.GetLabel(3000).index(1)) + [Control.HasFocus(3000) | Control.HasFocus(301)] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                <param name="busy_visible">[Integer.IsEqual(Container(503).NumItems,0) | Container(503).IsUpdating]</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">503</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">$VAR[Path_SearchTerm_SingleEncoded,videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D]</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(503) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">504</param>
+                <param name="groupid">704</param>
+                <param name="label">Albums</param>
+                <param name="include">List_Square_Row</param>
+                <param name="visible">[String.IsEqual(Container(601).ListItem.Property(guid),guid-8568cc69) | String.IsEmpty(Container(601).ListItem.Property(guid)) | Skin.HasSetting(Search.DisableCombined)]</param>
+                <param name="altvisible">[!String.IsEmpty(Control.GetLabel(3000).index(1)) + [Control.HasFocus(3000) | Control.HasFocus(301)] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                <param name="busy_isupdating">[!String.IsEmpty(Control.GetLabel(3000).index(1)) + [Control.HasFocus(3000) | Control.HasFocus(301)] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                <param name="busy_visible">[Integer.IsEqual(Container(504).NumItems,0) | Container(504).IsUpdating]</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">504</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="music" limit="" browse="$VAR[Defs_BrowseLimitedLists]">$VAR[Path_SearchTerm_SingleEncoded,musicdb://albums/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22album%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22albums%22%7D]</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(504) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">505</param>
+                <param name="groupid">705</param>
+                <param name="label">Artists</param>
+                <param name="include">List_Square_Row</param>
+                <param name="visible">[String.IsEqual(Container(601).ListItem.Property(guid),guid-4b9d78e9) | String.IsEmpty(Container(601).ListItem.Property(guid)) | Skin.HasSetting(Search.DisableCombined)]</param>
+                <param name="altvisible">[!String.IsEmpty(Control.GetLabel(3000).index(1)) + [Control.HasFocus(3000) | Control.HasFocus(301)] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                <param name="busy_isupdating">[!String.IsEmpty(Control.GetLabel(3000).index(1)) + [Control.HasFocus(3000) | Control.HasFocus(301)] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                <param name="busy_visible">[Integer.IsEqual(Container(505).NumItems,0) | Container(505).IsUpdating]</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">505</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="music" limit="" browse="$VAR[Defs_BrowseLimitedLists]">$VAR[Path_SearchTerm_SingleEncoded,musicdb://artists/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22artists%22%7D]</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(505) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">506</param>
+                <param name="groupid">706</param>
+                <param name="label">Movies (TMDb)</param>
+                <param name="include">List_Poster_Row</param>
+                <param name="visible">[String.IsEqual(Container(601).ListItem.Property(guid),guid-8ea99d8d) | String.IsEmpty(Container(601).ListItem.Property(guid)) | Skin.HasSetting(Search.DisableCombined)]</param>
+                <param name="altvisible">[!String.IsEmpty(Control.GetLabel(3000).index(1)) + [Control.HasFocus(3000) | Control.HasFocus(301)] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                <param name="busy_isupdating">[!String.IsEmpty(Control.GetLabel(3000).index(1)) + [Control.HasFocus(3000) | Control.HasFocus(301)] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                <param name="busy_visible">[Integer.IsEqual(Container(506).NumItems,0) | Container(506).IsUpdating]</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">506</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">$VAR[Path_SearchTerm_DoubleEncoded,plugin://plugin.video.themoviedb.helper?info=search&amp;tmdb_type=movie&amp;query=,&amp;nextpage=false&amp;cacheonly=true]</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(506) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">507</param>
+                <param name="groupid">707</param>
+                <param name="label">TV Shows (TMDb)</param>
+                <param name="include">List_Poster_Row</param>
+                <param name="visible">[String.IsEqual(Container(601).ListItem.Property(guid),guid-083b6023) | String.IsEmpty(Container(601).ListItem.Property(guid)) | Skin.HasSetting(Search.DisableCombined)]</param>
+                <param name="altvisible">[!String.IsEmpty(Control.GetLabel(3000).index(1)) + [Control.HasFocus(3000) | Control.HasFocus(301)] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                <param name="busy_isupdating">[!String.IsEmpty(Control.GetLabel(3000).index(1)) + [Control.HasFocus(3000) | Control.HasFocus(301)] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                <param name="busy_visible">[Integer.IsEqual(Container(507).NumItems,0) | Container(507).IsUpdating]</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">507</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">$VAR[Path_SearchTerm_DoubleEncoded,plugin://plugin.video.themoviedb.helper?info=search&amp;tmdb_type=tv&amp;query=,&amp;nextpage=false&amp;cacheonly=true]</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(507) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+        </include>
+    </include>
+    <!-- Search Selector -->
+    <include name="skinvariables-searchwidgets-selector">
+        <item>
+            <label>Movies</label>
+            <icon>special://skin/extras/icons/film.png</icon>
+            <property name="guid">guid-5859617f</property>
+            <property name="widget_id">$NUMBER[502]</property>
+            <property name="show_artwork">true</property>
+            <property name="widget_numitems">$INFO[Container(502).NumItems]</property>
+            <visible>!Integer.IsEqual(Container(502).NumItems,0)</visible>
+            <visible>!String.IsEmpty(Control.GetLabel(3000).index(1))</visible>
+        </item>
+        <item>
+            <label>TV Shows</label>
+            <icon>special://skin/extras/icons/tv.png</icon>
+            <property name="guid">guid-88ca3498</property>
+            <property name="widget_id">$NUMBER[503]</property>
+            <property name="show_artwork">true</property>
+            <property name="widget_numitems">$INFO[Container(503).NumItems]</property>
+            <visible>!Integer.IsEqual(Container(503).NumItems,0)</visible>
+            <visible>!String.IsEmpty(Control.GetLabel(3000).index(1))</visible>
+        </item>
+        <item>
+            <label>Albums</label>
+            <icon>special://skin/extras/icons/songs.png</icon>
+            <property name="guid">guid-8568cc69</property>
+            <property name="widget_id">$NUMBER[504]</property>
+            <property name="show_artwork">true</property>
+            <property name="widget_numitems">$INFO[Container(504).NumItems]</property>
+            <visible>!Integer.IsEqual(Container(504).NumItems,0)</visible>
+            <visible>!String.IsEmpty(Control.GetLabel(3000).index(1))</visible>
+        </item>
+        <item>
+            <label>Artists</label>
+            <icon>special://skin/extras/icons/songs.png</icon>
+            <property name="guid">guid-4b9d78e9</property>
+            <property name="widget_id">$NUMBER[505]</property>
+            <property name="show_artwork">true</property>
+            <property name="widget_numitems">$INFO[Container(505).NumItems]</property>
+            <visible>!Integer.IsEqual(Container(505).NumItems,0)</visible>
+            <visible>!String.IsEmpty(Control.GetLabel(3000).index(1))</visible>
+        </item>
+        <item>
+            <label>Movies (TMDb)</label>
+            <icon>special://skin/extras/icons/film.png</icon>
+            <property name="guid">guid-8ea99d8d</property>
+            <property name="widget_id">$NUMBER[506]</property>
+            <property name="show_artwork">true</property>
+            <property name="widget_numitems">$INFO[Container(506).NumItems]</property>
+            <visible>!Integer.IsEqual(Container(506).NumItems,0)</visible>
+            <visible>!String.IsEmpty(Control.GetLabel(3000).index(1))</visible>
+        </item>
+        <item>
+            <label>TV Shows (TMDb)</label>
+            <icon>special://skin/extras/icons/tv.png</icon>
+            <property name="guid">guid-083b6023</property>
+            <property name="widget_id">$NUMBER[507]</property>
+            <property name="show_artwork">true</property>
+            <property name="widget_numitems">$INFO[Container(507).NumItems]</property>
+            <visible>!Integer.IsEqual(Container(507).NumItems,0)</visible>
+            <visible>!String.IsEmpty(Control.GetLabel(3000).index(1))</visible>
+        </item>
+    </include>
+    <!-- Search Extended -->
+    <include name="skinvariables-searchwidgets-info">
+        <include content="Hub_Combined_Info">
+            <param name="id">502</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">503</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">504</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">505</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">506</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">507</param>
+        </include>
+    </include>
+</includes>

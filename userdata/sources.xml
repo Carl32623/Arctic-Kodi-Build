@@ -1,0 +1,50 @@
+<sources>
+    <programs>
+        <default pathversion="1"></default>
+    </programs>
+    <video>
+        <default pathversion="1"></default>
+    </video>
+    <music>
+        <default pathversion="1"></default>
+    </music>
+    <pictures>
+        <default pathversion="1"></default>
+    </pictures>
+    <files>
+        <default pathversion="1"></default>
+        <source>
+            <name>Umbrella</name>
+            <path pathversion="1">https://umbrellaplug.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>Coco Scrapers</name>
+            <path pathversion="1">https://cocojoe2411.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>Seren</name>
+            <path pathversion="1">https://nixgates.github.io/packages</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>POV</name>
+            <path pathversion="1">https://kodifitzwell.github.io/repo</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>The Crew</name>
+            <path pathversion="1">https://team-crew.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>Jurial</name>
+            <path pathversion="1">https://jurialmunkey.github.io/repository.jurialmunkey</path>
+            <allowsharing>true</allowsharing>
+        </source>
+    </files>
+    <games>
+        <default pathversion="1"></default>
+    </games>
+</sources>

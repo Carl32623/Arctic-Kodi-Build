@@ -1,0 +1,16 @@
+[
+    {
+        "label": "Search Movies",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=dir_search&tmdb_type=movie&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-90be494f"
+    },
+    {
+        "label": "Search TV Shows",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=dir_search&tmdb_type=tv&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-8c7ff725"
+    }
+]

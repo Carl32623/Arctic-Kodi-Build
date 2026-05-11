@@ -1,0 +1,30 @@
+[
+    {
+        "label": "Umbrella",
+        "path": "plugin://plugin.video.umbrella",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-dfe94a05"
+    },
+    {
+        "label": "POV",
+        "path": "plugin://plugin.video.pov",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-0575e726"
+    },
+    {
+        "label": "The Crew",
+        "path": "plugin://plugin.video.thecrew",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-3c0b3038"
+    },
+    {
+        "label": "Seren",
+        "path": "plugin://plugin.video.seren",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-cef9350d"
+    }
+]

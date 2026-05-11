@@ -1,0 +1,66 @@
+[
+    {
+        "label": "Trending",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=trending_week&tmdb_type=movie&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-0b8eb1f8",
+        "disabled": ""
+    },
+    {
+        "label": "Popular",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=popular&tmdb_type=movie&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-2c5496de"
+    },
+    {
+        "label": "Top Rated",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=top_rated&tmdb_type=movie&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-5f6b801f"
+    },
+    {
+        "label": "Upcoming",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=upcoming&tmdb_type=movie&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-921247ea"
+    },
+    {
+        "label": "In Theaters",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=now_playing&tmdb_type=movie&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-acb15c69"
+    },
+    {
+        "label": "Recently Watched",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=trakt_history&tmdb_type=movie&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-a34b8996"
+    },
+    {
+        "label": "Recommended For You",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=trakt_recommendations&tmdb_type=movie&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-433854c8"
+    },
+    {
+        "label": "Based on Recently Watched",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=trakt_becauseyouwatched&tmdb_type=movie&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-a3d66d05"
+    },
+    {
+        "label": "Search",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=dir_search&tmdb_type=movie&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+        "icon": "special://skin/extras/icons/watched-hide.png",
+        "target": "videos",
+        "guid": "guid-0cb777af"
+    }
+]

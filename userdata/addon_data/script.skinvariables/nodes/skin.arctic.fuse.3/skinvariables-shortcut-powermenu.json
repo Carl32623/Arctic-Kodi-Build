@@ -1,0 +1,30 @@
+[
+    {
+        "icon": "special://skin/extras/icons/favourites2.png",
+        "label": "$LOCALIZE[1036]",
+        "path": "ActivateWindow(1160)",
+        "target": "",
+        "guid": "guid-64d3a1e3"
+    },
+    {
+        "icon": "special://skin/extras/icons/filebox.png",
+        "label": "$LOCALIZE[7]",
+        "path": "ActivateWindow(filemanager)",
+        "target": "",
+        "guid": "guid-492af53b"
+    },
+    {
+        "icon": "special://skin/extras/icons/address-card.png",
+        "label": "$LOCALIZE[31359]",
+        "path": "ActivateWindow(1195)",
+        "target": "",
+        "guid": "guid-7a27e94e"
+    },
+    {
+        "icon": "special://skin/extras/icons/power.png",
+        "label": "$LOCALIZE[13009]",
+        "path": "Quit()",
+        "target": "",
+        "guid": "guid-4b998f65"
+    }
+]

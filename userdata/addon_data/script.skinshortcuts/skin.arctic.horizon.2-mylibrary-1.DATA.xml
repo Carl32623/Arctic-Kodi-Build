@@ -1,0 +1,18 @@
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>Trakt Watchlist</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist&amp;tmdb_type=movie&amp;list_name=Movies+Watchlist&amp;tmdb_id=None&amp;reload=%24INFO%5BWindow%28Home%29.Property%28TMDbHelper.Widgets.Reload%29%5D&amp;widget=true",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Continue Watching</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_inprogress&amp;tmdb_type=tv&amp;list_name=Your+In-Progress+TV+shows&amp;tmdb_id=None&amp;reload=%24INFO%5BWindow%28Home%29.Property%28TMDbHelper.Widgets.Reload%29%5D&amp;widget=true",return)</action>
+		</shortcut>
+	</shortcuts>

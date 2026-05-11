@@ -1,0 +1,10 @@
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>Search TV Shows</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=search&amp;tmdb_type=tv&amp;reload=%24INFO%5BSystem.Time%28hh%3Amm%3Ass%29%5D",return)</action>
+		</shortcut>
+	</shortcuts>

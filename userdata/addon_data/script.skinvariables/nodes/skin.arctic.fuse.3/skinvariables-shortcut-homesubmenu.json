@@ -1,0 +1,16 @@
+[
+    {
+        "label": "Movies",
+        "icon": "special://skin/extras/icons/video.png",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=dir_movie&tmdb_type=None",
+        "target": "videos",
+        "guid": "guid-953cf821"
+    },
+    {
+        "label": "TV Shows",
+        "icon": "special://skin/extras/icons/songs.png",
+        "path": "plugin://plugin.video.themoviedb.helper/?info=dir_tv&tmdb_type=None",
+        "target": "videos",
+        "guid": "guid-79881569"
+    }
+]

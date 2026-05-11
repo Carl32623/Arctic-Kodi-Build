@@ -1,0 +1,26 @@
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>Umbrella</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,"plugin://plugin.video.umbrella",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>POV</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,"plugin://plugin.video.pov",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>The Crew</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,"plugin://plugin.video.thecrew",return)</action>
+		</shortcut>
+	</shortcuts>
