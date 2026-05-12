@@ -1,36 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
 
-<addon id="repository.carlfusion"
-       name="CarlFusion Repository"
-       version="1.0"
-       provider-name="Carl32623">
+    <!-- CarlFusion Repository -->
 
-    <extension point="xbmc.addon.repository"
-               name="CarlFusion Repository">
+    <addon id="repository.carlfusion"
+           name="CarlFusion Repository"
+           version="1.0"
+           provider-name="Carl32623">
 
-        <dir>
-            <info compressed="false">
-https://carl32623.github.io/Arctic-Kodi-Build/addons.xml
-            </info>
+        <extension point="xbmc.addon.repository"
+                   name="CarlFusion Repository">
 
-            <checksum>
-https://carl32623.github.io/Arctic-Kodi-Build//addons.xml.md5
-            </checksum>
+            <dir>
+                <info compressed="false">
+                    https://carl32623.github.io/Arctic-Kodi-Build/addons.xml
+                </info>
 
-            <datadir zip="true">
-https://carl32623.github.io/Arctic-Kodi-Build/
-            </datadir>
-        </dir>
+                <checksum>
+                    https://carl32623.github.io/Arctic-Kodi-Build/addons.xml.md5
+                </checksum>
 
-    </extension>
+                <datadir zip="true">
+                    https://carl32623.github.io/Arctic-Kodi-Build/
+                </datadir>
+            </dir>
 
-    <extension point="xbmc.addon.metadata">
-        <summary>CarlFusion Kodi Repository</summary>
-        <description>CarlFusion Kodi Build Repository</description>
-        <platform>all</platform>
-    </extension>
+        </extension>
 
-</addon>
+        <extension point="xbmc.addon.metadata">
+            <summary>CarlFusion Kodi Repository</summary>
+            <description>Repository for the CarlFusion Kodi Build</description>
+            <platform>all</platform>
+        </extension>
+
+    </addon>
+
+
+
+    <!-- Future CarlFusion Wizard Addon -->
+    <!-- Placeholder for upcoming wizard addon -->
+
+    <addon id="plugin.program.carlfusionwizard"
+           name="CarlFusion Wizard"
+           version="1.0"
+           provider-name="Carl32623">
+
+        <requires>
+            <import addon="xbmc.python" version="3.0.0"/>
+        </requires>
+
+        <extension point="xbmc.python.pluginsource"
+                   library="default.py">
+            <provides>executable</provides>
+        </extension>
+
+        <extension point="xbmc.addon.metadata">
+            <summary>CarlFusion Build Wizard</summary>
+            <description>Wizard installer for the CarlFusion Kodi Build</description>
+            <platform>all</platform>
+        </extension>
+
+    </addon>
 
 </addons>
