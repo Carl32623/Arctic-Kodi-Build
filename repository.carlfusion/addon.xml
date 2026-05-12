@@ -9,15 +9,15 @@
 
         <dir>
             <info compressed="false">
-https://raw.githubusercontent.com/Carl32623/Arctic-Kodi-Build/main/addons.xml
+https://carl32623.github.io/Arctic-Kodi-Build/addons.xml
             </info>
 
             <checksum>
-https://raw.githubusercontent.com/Carl32623/Arctic-Kodi-Build/main/addons.xml.md5
+https://carl32623.github.io/Arctic-Kodi-Build/addons.xml.md5
             </checksum>
 
             <datadir zip="true">
-https://raw.githubusercontent.com/Carl32623/Arctic-Kodi-Build/main/
+https://carl32623.github.io/Arctic-Kodi-Build/
             </datadir>
         </dir>
 
