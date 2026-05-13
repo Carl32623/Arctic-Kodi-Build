@@ -7,15 +7,15 @@
     <extension point="xbmc.addon.repository">
         <dir>
             <info compressed="false">
-                https://Carl32623.github.io/Arctic-Kodi-Build/repo/zips/addons.xml
+                https://carl32623.github.io/Arctic-Kodi-Build/repo/zips/addons.xml
             </info>
 
             <checksum>
-                https://Carl32623.github.io/Arctic-Kodi-Build/repo/zips/addons.xml.md5
+                https://carl32623.github.io/Arctic-Kodi-Build/repo/zips/addons.xml.md5
             </checksum>
 
             <datadir zip="true">
-                https://Carl32623.github.io/Arctic-Kodi-Build/repo/zips/
+                https://carl32623.github.io/Arctic-Kodi-Build/repo/zips/
             </datadir>
         </dir>
     </extension>
