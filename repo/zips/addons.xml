@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+    <addon id="repository.carlfusion"
+           name="CarlFusion Repo"
+           version="1.0.0"
+           provider-name="Carl LaLonde">
+
+        <extension point="xbmc.addon.repository">
+            <dir>
+                <info compressed="false">https://Carl32623.github.io/Arctic-Kodi-Build/repo/zips/addons.xml</info>
+                <checksum>https://Carl32623.github.io/Arctic-Kodi-Build/repo/zips/addons.xml.md5</checksum>
+                <datadir zip="true">https://Carl32623.github.io/Arctic-Kodi-Build/repo/zips/</datadir>
+            </dir>
+        </extension>
+
+        <extension point="xbmc.addon.metadata">
+            <summary>CarlFusion Kodi Repository</summary>
+            <description>Kodi repository for Arctic Kodi Build</description>
+            <platform>all</platform>
+        </extension>
+    </addon>
+</addons>
